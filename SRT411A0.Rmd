@@ -1,0 +1,235 @@
+---
+title: "SRT411 Assignment 0"
+author: "Christopher Belsanti"
+date: "February 14, 2019"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+
+# Github Username
+
+cbelsanti
+
+# Introduction
+
+This is teh SRT411 Assigment 0. In this assigment I had to write and run R code that makes the Todo's from the document given for this lab.
+
+# Document Link
+
+https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf
+
+# Todo codes and answers
+
+## ToDo 1
+
+Compute the difference between 2014 and theyear  you  started  at  this  university  and  dividethis by the difference between 2014 and the yearyou  were  born.   Multiply  this  with  100  to  getthe  percentage  of  your  life  you  have  spent  atthis university.  Use brackets if you need them.
+
+```{r ToDO1, echo=TRUE}
+((2018 - 2014) / (2014-1999)) * 100
+```
+
+## ToDo 2
+
+Repeat  the  previous  ToDo,  but  with  severalsteps  in  between.   You  can  give  the  variablesany name you want, but the name has to startwith a letter.
+
+```{r ToDo2, echo=TRUE}
+a = 2018 - 2014
+b = 2014-1999
+c = a/b
+d = c*100
+d
+```
+
+## ToDo 3
+
+Compute the sum of 4, 5, 8 and 11 by first com-bining  them  into  a  vector  and  then  using  thefunction sum.
+
+```{r ToDo3, echo=TRUE}
+e=c(4,5,8,11)
+sum(e)
+```
+
+## ToDo 4
+
+Plot 100 normal random numbers.
+
+```{r ToDo4, echo=TRUE}
+f = rnorm(100)
+plot(f)
+```
+
+## ToDo 5
+
+Find help for the sqrt function.
+
+```{r ToDo5, echo=TRUE}
+help(sqrt)
+```
+
+MathFun {base}	R Documentation
+Miscellaneous Mathematical Functions
+
+Description
+
+abs(x) computes the absolute value of x, sqrt(x) computes the (principal) square root of x, √{x}.
+
+The naming follows the standard for computer languages such as C or Fortran.
+
+Usage
+
+abs(x)
+sqrt(x)
+Arguments
+
+x	
+a numeric or complex vector or array.
+Details
+
+These are internal generic primitive functions: methods can be defined for them individually or via the Math group generic. For complex arguments (and the default method), z, abs(z) == Mod(z) and sqrt(z) == z^0.5.
+
+abs(x) returns an integer vector when x is integer or logical.
+
+S4 methods
+
+Both are S4 generic and members of the Math group generic.
+
+References
+
+Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) The New S Language. Wadsworth & Brooks/Cole.
+
+See Also
+
+Arithmetic for simple, log for logarithmic, sin for trigonometric, and Special for special mathematical functions.
+
+‘plotmath’ for the use of sqrt in plot annotation.
+
+Examples
+
+require(stats) # for spline
+require(graphics)
+xx <- -9:9
+plot(xx, sqrt(abs(xx)),  col = "red")
+lines(spline(xx, sqrt(abs(xx)), n=101), col = "pink")
+
+## ToDo 6
+
+Make a file called firstscript.R containing R-code  that  generates  100  random  numbers  andplots them, and run this script several times.
+
+```{r firstscript.R, echo=TRUE}
+source("~/R/firstscript.R")
+```
+
+## ToDo 7
+
+Put  the  numbers  31  to  60  in  a  vector  named Pand in a matrix with 6 rows and 5 columns named Q. Tip:  use the function seq.  Look atthe different ways scalars, vectors and matrices are denoted in the workspace window.
+
+```{r ToDo7, echo=TRUE}
+P=seq(from=31, to=60, by=1)
+Q = matrix(P, ncol=5, nrow=6)
+Q
+```
+
+## ToDo 8
+
+Make  a  script  file  which  constructs  three  ran-dom  normal  vectors  of  length  100.   Call  thesevectorsx1,x2andx3. Make a data frame called t with three columns (calleda,bandc) con-taining  respectively x1,x1+x2 and x1+x2+x3.Call the following functions for this data frame: plot(t) and sd(t).  
+
+```{r Todo 8, echo=TRUE}
+source("~/R/todo8.R")
+```
+
+## ToDo 9
+
+Add these lines to the script file of the previous section.  Try to find out, either by experiment-ing or by using the help, what the meaning is of rgb, the last argument of rgb,lwd,pch,cex.
+
+```{r todo9.R, echo=TRUE}
+source("~/R/todo9.R")
+```
+
+## ToDo 10
+
+Make  a  file  called tst1.txt in  Notepad  from the  example  in  Figure  4  and  store  it  in  your working directory.  Write a script to read it, tomultiply the column calle dg by 5 and to store it as tst2.txt.
+
+```{r ToDo10, echo=TRUE}
+w = read.table(file="/home/cbelsanti/R/tst1.txt", header=TRUE)
+w2 = w[2] * 5
+w3 = data.frame(w[1], w2, w[3])
+write.table(w3, file="tst2.txt", row.names=FALSE)
+w3
+```
+
+
+## ToDo 11
+
+Make  a  file  called tst1.txt in  Notepad  from the  example  in  Figure  4  and  store  it  in  your working directory.  Write a script to read it, tomultiply the column calle dg by 5 and to store it as tst2.txt.
+
+```{r ToDo11, echo=TRUE}
+r= c(rnorm(100))
+mean(sqrt(r))
+```
+
+## ToDo 12
+
+Compute the mean of the square root of a vec-tor  of  100  random  numbers.
+
+```{r ToDo12, echo=TRUE}
+x_axis_date=strptime( c("20190212204100", "20141205000000", "20191112010000"), format="%Y%m%d%H%M%S")
+y_axis_presents = c(0,5,8)
+plot(x_axis_date,y_axis_presents)
+```
+
+## ToDo 13
+
+Make  a  graph  with  on  the  x-axis:  today,  Sin-terklaas  2014  and  your  next  birthday  and  onthe y-axis the number of presents you expect oneach of these days
+
+```{r ToDo13, echo=TRUE}
+g=seq(from=1, to=100, by=1)
+for(i in g)
+{
+if(g[i] < 5)
+{
+g[i] = g[i] * 10
+} else if(g[i] > 90)
+{
+g[i] = g[i] * 10
+} else {
+g[i] = g[i] * 0.1
+}
+}
+g
+```
+
+## ToDo 14
+
+Make a vector from 1 to 100.  Make a for-loopwhich runs through the whole vector.  Multiply the elements which are smaller than 5 and largerthan 90 with 10 and the other elements with 0.1.
+
+```{r ToDo14, echo=TRUE}
+g=seq(from=1, to=100, by=1)
+fun1 = function(var)
+{
+length(var)
+for(i in var)
+{
+if(var[i] < 5)
+{
+var[i] = var[i] * 10
+} else if(var[i] > 90)
+{
+var[i] = var[i] * 10
+} else {
+var[i] = var[i] * 0.1
+}
+}
+return(var)
+}
+fun1(g)
+length(g)
+```
+# Soruces used to complete the assigment
+- https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf
+- https://stackoverflow.com/questions/26994958/error-cannot-open-the-connection-in-executing-knit-html-in-rstudio
+- https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
+- http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
+- http://kbroman.org/knitr_knutshell/pages/markdown.html
+- https://nicercode.github.io/guides/reports/
+- https://rmarkdown.rstudio.com/
